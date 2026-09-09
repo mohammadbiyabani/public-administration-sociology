@@ -1,0 +1,16 @@
+name: Daily AI Content Generation Cron
+
+on:
+  schedule:
+    # Runs automatically every day at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Generation Endpoint
+        run: |
+          curl -X POST "https://study-sphere-app-flax.vercel.app/api/cron" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"
