@@ -1,12 +1,8 @@
-module.exports = async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
+export default async function handler(req, res) {
+  // Handle CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -14,8 +10,8 @@ module.exports = async function handler(req, res) {
 
   if (req.method === 'POST') {
     const { message } = req.body || {};
-    return res.status(200).json({ reply: `Sociology AI: Received your message "${message}"` });
+    return res.status(200).json({ reply: `Sociology AI received: ${message}` });
   }
 
-  return res.status(200).json({ status: "API is working properly!" });
-};
+  return res.status(200).json({ status: "API endpoint active!" });
+}
