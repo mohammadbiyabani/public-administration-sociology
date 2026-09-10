@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-// Enable CORS for all routes
+// Enable CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,13 +20,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Test health endpoint
-app.get('/api/chat', (req: Request, res: Response) => {
+// Health check endpoints
+app.get(['/api', '/api/chat'], (req: Request, res: Response) => {
   res.status(200).json({ status: 'API is fully active via Express!' });
 });
 
 // Main chat endpoint
-app.post('/api/chat', async (req: Request, res: Response) => {
+app.post(['/api', '/api/chat'], async (req: Request, res: Response) => {
   try {
     const { message } = req.body || {};
 
