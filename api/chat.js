@@ -1,5 +1,4 @@
-export default async function handler(req, res) {
-  // Handle CORS
+export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -8,10 +7,5 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  if (req.method === 'POST') {
-    const { message } = req.body || {};
-    return res.status(200).json({ reply: `Sociology AI received: ${message}` });
-  }
-
-  return res.status(200).json({ status: "API endpoint active!" });
+  return res.status(200).json({ message: "Serverless function is working!" });
 }
