@@ -1,12 +1,6 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
-    }
-  ]
-}
+<ol>
+  <li>Go to your repository on GitHub: <code>[https://github.com/mohammadbiyabani/public-administration-sociology](https://github.com/mohammadbiyabani/public-administration-sociology)</code>.</li>
+  <li>Click **Add file** $\rightarrow$ **Create new file**.</li>
+  <li>Set the filename to **`vercel.json`**.</li>
+  <li>Paste the following rewrite configuration into the file:
+    <pre><code>{
