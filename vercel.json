@@ -1,0 +1,5 @@
+<ol>
+  <li>In your GitHub repo, click <strong>Add file</strong> $\rightarrow$ <strong>Create new file</strong>.</li>
+  <li>Name the file: <code>vercel.json</code></li>
+  <li>Paste this exact configuration:
+    <pre><code>{
