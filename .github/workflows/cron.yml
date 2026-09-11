@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Call Generation Endpoint
         run: |
-          curl -X POST "https://study-sphere-app-flax.vercel.app/api/cron" \
+          curl -X POST "https://public-administration-sociology.vercel.app/api/cron" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"
