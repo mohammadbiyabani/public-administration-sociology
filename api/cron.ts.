@@ -1,23 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { GoogleGenAI } from '@google/genai';
 
-export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
-) {
-  // 1. Verify Authorization Header
-  const authHeader = req.headers.authorization;
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-
-  try {
-    // 2. Your Gemini + Supabase Logic Here
-    // const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-    
-    return res.status(200).json({ success: true, message: 'Content generated successfully' });
-  } catch (error: any) {
-    return res.status(500).json({ error: error.message });
-  }
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log("Cron triggered!");
+  res.status(200).json({ message: "Hello from cron" });
 }
-// trigger vercel build
